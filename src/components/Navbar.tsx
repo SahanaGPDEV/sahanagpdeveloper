@@ -89,13 +89,18 @@ const Navbar = () => {
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium py-2"
-              >
-                {link.name}
-              </a>
+  key={link.name}
+  href={link.href}
+  onClick={() => {
+    setIsMobileMenuOpen(false);
+    window.location.hash = link.href;   // ⭐ forces correct scrolling
+  }}
+  role="link"
+  className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium py-2"
+>
+  {link.name}
+</a>
+
             ))}
             <Button
               asChild
