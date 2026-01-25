@@ -1,6 +1,23 @@
-Portfolio Website
+#  Personal Portfolio Website
 
-Link: https://sahanagpdev.github.io/sahanagpdeveloper/
+## ✨ Overview
+A responsive personal portfolio website showcasing my skills, projects, and profile. Built with clean UI and smooth layout using HTML, CSS, and JavaScript.
 
-Description:
-A personal portfolio showcasing my skills, projects, and contact information with a clean, responsive design.
+##  Features
+- Responsive design  
+- Project showcase  
+- About section  
+- Contact section  
+- Smooth navigation
+
+## 🛠 Tech Stack
+HTML • CSS • JavaScript
+
+## 🔗 Live Demo
+https://sahanagpdev.github.io/sahanagpdeveloper/
+
+## 📁 Folder Structure
+- index.html  
+- style.css  
+- script.js  
+- assets/
