@@ -6,10 +6,19 @@ import { Button } from '@/components/ui/button';
 
 const projects = [
   {
+    title: 'The Iron Lady Lead Engine — AI-Powered Lead Management',
+    status: 'Completed',
+    category: 'Web App',
+    description: 'An AI-augmented system for end-to-end lead generation, qualification, and conversion. Features "Asha AI," an empathetic customer advisor with voice-to-text capabilities using Whisper-large-v3, and "Project Ironclad," a premium CRM dashboard with an AI co-pilot for personalized WhatsApp follow-ups. Built with a unified data pipeline for seamless business operations.',
+    techStack: ['Python', 'Streamlit', 'Groq AI', 'Whisper API', 'Tailwind CSS'],
+    liveDemo: 'https://ironlady-lead-engine-9dzmeeryvgmu6qya835fky.streamlit.app/',
+    github: 'https://github.com/SahanaGPDEV/ironlady-lead-engine',
+  },
+  {
     title: 'TaskFlow — Smart Task & Productivity Manager',
     status: 'In progress',
     category: 'Web App',
-    description: 'TaskFlow is a clean and responsive task management web application designed to help users organize daily work efficiently. The application allows users to create, update, delete, and prioritize tasks with a simple and intuitive interface. Tasks are stored using browser local storage, ensuring data persistence without requiring a backend. The project focuses on strong JavaScript fundamentals, DOM manipulation, clean UI design, and real-world problem solving. Built with scalability in mind, the application structure allows future integration of backend services and authentication.',
+    description: 'TaskFlow is a clean and responsive task management web application designed to help users organize daily work efficiently. The application allows users to create, update, delete, and prioritize tasks with a simple and intuitive interface. Tasks are stored using browser local storage, ensuring data persistence without requiring a backend. The project focuses on strong JavaScript fundamentals, DOM manipulation, clean UI design, and real-world problem solving.',
     techStack: ['HTML', 'CSS', 'JavaScript', 'Git', 'GitHub'],
     liveDemo: null,
     github: null,
@@ -23,8 +32,8 @@ const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(p => p.category === activeFilter);
 
   return (
@@ -50,11 +59,10 @@ const ProjectsSection = () => {
                 key={category}
                 variant={activeFilter === category ? "default" : "outline"}
                 onClick={() => setActiveFilter(category)}
-                className={`${
-                  activeFilter === category
+                className={`${activeFilter === category
                     ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground'
                     : 'border-border hover:border-primary hover:text-primary'
-                } transition-all duration-300`}
+                  } transition-all duration-300`}
               >
                 {category}
               </Button>
@@ -77,11 +85,10 @@ const ProjectsSection = () => {
                   <Folder className="w-6 h-6 text-primary" />
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className={`px-3 py-1 text-xs rounded-full flex items-center gap-1 ${
-                    project.status === 'In progress' 
-                      ? 'bg-amber-500/20 text-amber-400' 
+                  <span className={`px-3 py-1 text-xs rounded-full flex items-center gap-1 ${project.status === 'In progress'
+                      ? 'bg-amber-500/20 text-amber-400'
                       : 'bg-green-500/20 text-green-400'
-                  }`}>
+                    }`}>
                     <Clock className="w-3 h-3" />
                     {project.status}
                   </span>
