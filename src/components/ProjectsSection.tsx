@@ -6,12 +6,16 @@ import { Button } from '@/components/ui/button';
 
 const projects = [
   {
-    title: 'The Iron Lady Lead Engine — AI-Powered Lead Management',
+    title: 'The Iron Lady Lead Engine — Top 1% AI Solution',
     status: 'Completed',
     category: 'Web App',
-    description: 'An AI-augmented system for end-to-end lead generation, qualification, and conversion. Features "Asha AI," an empathetic customer advisor with voice-to-text capabilities using Whisper-large-v3, and "Project Ironclad," a premium CRM dashboard with an AI co-pilot for personalized WhatsApp follow-ups. Built with a unified data pipeline for seamless business operations.',
-    techStack: ['Python', 'Streamlit', 'Groq AI', 'Whisper API', 'Tailwind CSS'],
-    liveDemo: 'https://ironlady-lead-engine-9dzmeeryvgmu6qya835fky.streamlit.app/',
+    description: 'A high-performance, AI-augmented business solution designed for the Iron Lady program. This integrated system features two specialized applications: "Asha AI" (a multi-lingual, voice-enabled counseling advisor) and "Project Ironclad" (a premium AI CRM for data-driven lead conversion). Developed as an end-to-end pipeline with automated A/B testing, Groq-powered analysis, and personalized AI follow-ups.',
+    techStack: ['Python', 'Streamlit', 'Groq AI', 'Whisper-large-v3', 'Tailwind CSS'],
+    liveDemos: [
+      { label: 'Asha AI (Task 1)', url: 'https://ironlady-lead-engine-9dzmeeryvgmu6qya835fky.streamlit.app/' },
+      { label: 'Ironclad CRM (Task 2)', url: 'https://ironlady-crm.streamlit.app/' }
+    ],
+    liveDemo: null,
     github: 'https://github.com/SahanaGPDEV/ironlady-lead-engine',
   },
   {
@@ -20,6 +24,7 @@ const projects = [
     category: 'Web App',
     description: 'TaskFlow is a clean and responsive task management web application designed to help users organize daily work efficiently. The application allows users to create, update, delete, and prioritize tasks with a simple and intuitive interface. Tasks are stored using browser local storage, ensuring data persistence without requiring a backend. The project focuses on strong JavaScript fundamentals, DOM manipulation, clean UI design, and real-world problem solving.',
     techStack: ['HTML', 'CSS', 'JavaScript', 'Git', 'GitHub'],
+    liveDemos: null,
     liveDemo: null,
     github: null,
   },
@@ -60,8 +65,8 @@ const ProjectsSection = () => {
                 variant={activeFilter === category ? "default" : "outline"}
                 onClick={() => setActiveFilter(category)}
                 className={`${activeFilter === category
-                    ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground'
-                    : 'border-border hover:border-primary hover:text-primary'
+                  ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground'
+                  : 'border-border hover:border-primary hover:text-primary'
                   } transition-all duration-300`}
               >
                 {category}
@@ -86,8 +91,8 @@ const ProjectsSection = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className={`px-3 py-1 text-xs rounded-full flex items-center gap-1 ${project.status === 'In progress'
-                      ? 'bg-amber-500/20 text-amber-400'
-                      : 'bg-green-500/20 text-green-400'
+                    ? 'bg-amber-500/20 text-amber-400'
+                    : 'bg-green-500/20 text-green-400'
                     }`}>
                     <Clock className="w-3 h-3" />
                     {project.status}
@@ -117,7 +122,7 @@ const ProjectsSection = () => {
               </div>
 
               {/* Links */}
-              <div className="flex items-center gap-4 pt-4 border-t border-border">
+              <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-border">
                 {project.github && (
                   <a
                     href={project.github}
@@ -129,7 +134,21 @@ const ProjectsSection = () => {
                     Code
                   </a>
                 )}
-                {project.liveDemo && (
+                {/* Support for multiple live demos */}
+                {project.liveDemos ? (
+                  project.liveDemos.map((demo) => (
+                    <a
+                      key={demo.label}
+                      href={demo.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-primary font-medium hover:underline transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      {demo.label}
+                    </a>
+                  ))
+                ) : project.liveDemo ? (
                   <a
                     href={project.liveDemo}
                     target="_blank"
@@ -139,8 +158,9 @@ const ProjectsSection = () => {
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
                   </a>
-                )}
-                {!project.github && !project.liveDemo && (
+                ) : null}
+
+                {!project.github && !project.liveDemo && !project.liveDemos && (
                   <span className="text-sm text-muted-foreground italic">Coming soon</span>
                 )}
               </div>
