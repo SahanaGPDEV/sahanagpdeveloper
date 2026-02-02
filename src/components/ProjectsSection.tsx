@@ -6,16 +6,21 @@ import { Button } from '@/components/ui/button';
 
 const projects = [
   {
-    title: 'The Iron Lady Lead Engine — Top 1% AI Solution',
+    title: 'Asha AI — Intelligent Program Advisor',
     status: 'Completed',
     category: 'Web App',
-    description: 'A high-performance, AI-augmented business solution designed for the Iron Lady program. This integrated system features two specialized applications: "Asha AI" (a multi-lingual, voice-enabled counseling advisor) and "Project Ironclad" (a premium AI CRM for data-driven lead conversion). Developed as an end-to-end pipeline with automated A/B testing, Groq-powered analysis, and personalized AI follow-ups.',
-    techStack: ['Python', 'Streamlit', 'Groq AI', 'Whisper-large-v3', 'Tailwind CSS'],
-    liveDemos: [
-      { label: 'Asha AI (Task 1)', url: 'https://ironlady-lead-engine-9dzmeeryvgmu6qya835fky.streamlit.app/' },
-      { label: 'Ironclad CRM (Task 2)', url: 'https://ironlady-crm.streamlit.app/' }
-    ],
-    liveDemo: null,
+    description: 'An empathetic AI counseling partner designed for the Iron Lady program. Features specialized multi-lingual support, Groq-powered analysis, and voice-to-text integration using Whisper-large-v3 to provide users with a personalized mentoring roadmap.',
+    techStack: ['Python', 'Streamlit', 'Groq AI', 'Whisper API', 'Tailwind CSS'],
+    liveDemo: 'https://ironlady-lead-engine-9dzmeeryvgmu6qya835fky.streamlit.app/',
+    github: 'https://github.com/SahanaGPDEV/ironlady-lead-engine',
+  },
+  {
+    title: 'Project Ironclad — AI CRM Lead Dashboard',
+    status: 'Completed',
+    category: 'Web App',
+    description: 'A premium internal command center for lead management. Integrates real-time conversion analytics, automated A/B testing feedback loops, and an AI co-pilot that generates personalized WhatsApp follow-ups to maximize conversion rates.',
+    techStack: ['Python', 'Streamlit', 'Groq AI', 'CRM Analytics', 'Tailwind CSS'],
+    liveDemo: 'https://ironlady-crm.streamlit.app/',
     github: 'https://github.com/SahanaGPDEV/ironlady-lead-engine',
   },
   {
@@ -24,7 +29,6 @@ const projects = [
     category: 'Web App',
     description: 'TaskFlow is a clean and responsive task management web application designed to help users organize daily work efficiently. The application allows users to create, update, delete, and prioritize tasks with a simple and intuitive interface. Tasks are stored using browser local storage, ensuring data persistence without requiring a backend. The project focuses on strong JavaScript fundamentals, DOM manipulation, clean UI design, and real-world problem solving.',
     techStack: ['HTML', 'CSS', 'JavaScript', 'Git', 'GitHub'],
-    liveDemos: null,
     liveDemo: null,
     github: null,
   },
@@ -122,45 +126,35 @@ const ProjectsSection = () => {
               </div>
 
               {/* Links */}
-              <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-border">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                    Code
-                  </a>
-                )}
-                {/* Support for multiple live demos */}
-                {project.liveDemos ? (
-                  project.liveDemos.map((demo) => (
+              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-border mt-auto">
+                {project.liveDemo && (
+                  <Button asChild size="sm" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
                     <a
-                      key={demo.label}
-                      href={demo.url}
+                      href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-primary font-medium hover:underline transition-colors"
+                      className="flex items-center gap-2 font-bold"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      {demo.label}
+                      Live Demo
                     </a>
-                  ))
-                ) : project.liveDemo ? (
-                  <a
-                    href={project.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </a>
-                ) : null}
+                  </Button>
+                )}
+                {project.github && (
+                  <Button asChild variant="outline" size="sm" className="border-border hover:border-primary hover:text-primary transition-colors hover:bg-transparent">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Github className="w-4 h-4" />
+                      Code
+                    </a>
+                  </Button>
+                )}
 
-                {!project.github && !project.liveDemo && !project.liveDemos && (
+                {!project.github && !project.liveDemo && (
                   <span className="text-sm text-muted-foreground italic">Coming soon</span>
                 )}
               </div>
