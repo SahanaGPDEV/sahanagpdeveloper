@@ -73,7 +73,7 @@ const CTASection = () => {
               className="border-border hover:border-primary hover:text-primary transition-all"
             >
               <a
-                href="https://image2url.com/r2/default/files/1768750387261-53596eb3-489f-414d-b638-dc7436f2f8c9.pdf"
+                href="/Sahana_cs_2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
