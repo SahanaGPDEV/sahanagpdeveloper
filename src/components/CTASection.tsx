@@ -73,7 +73,7 @@ const CTASection = () => {
               className="border-border hover:border-primary hover:text-primary transition-all"
             >
               <a
-                href="/Sahana_cs_2025.pdf"
+                href="/Sahana_GP_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >

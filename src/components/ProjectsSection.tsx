@@ -6,6 +6,15 @@ import { Button } from '@/components/ui/button';
 
 const projects = [
   {
+    title: 'DevTrack — Developer Productivity Dashboard',
+    status: 'Completed',
+    category: 'Web App',
+    description: 'A comprehensive productivity tool designed specificially for software developers. Track coding hours, solve DSA problems, manage goals, and monitor skill progression with analytics and gamification.',
+    techStack: ['Java Spring Boot', 'H2 Database', 'Docker', 'Render', 'HTML/CSS/JS'],
+    liveDemo: 'https://devtrack-3l6v.onrender.com/',
+    github: 'https://github.com/SahanaGPDEV/DevTrack',
+  },
+  {
     title: 'Asha AI — Intelligent Program Advisor',
     status: 'Completed',
     category: 'Web App',

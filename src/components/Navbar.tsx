@@ -57,7 +57,7 @@ const Navbar = () => {
             className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 transition-opacity"
           >
             <a
-              href="/Sahana_cs_2025.pdf"
+              href="/Sahana_GP_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2"
@@ -106,7 +106,7 @@ const Navbar = () => {
               className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 transition-opacity w-full"
             >
               <a
-                href="/Sahana_cs_2025.pdf"
+                href="/Sahana_GP_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2"
